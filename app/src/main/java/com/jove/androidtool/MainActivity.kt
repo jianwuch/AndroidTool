@@ -42,8 +42,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Button(onClick = {
             PostAndGetUtil.post(
                 "www.baidu.com",
-                Gson().toJson(mapOf<String, Any>("key1" to 1, "key2" to "2"))
-            )
+                Gson().toJson(mapOf<String, Any>("key1" to 1, "key2" to "2")),
+            ){success, msg->{}}
         }) {
             Text(
                 text = "Post",
@@ -55,7 +55,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             PostAndGetUtil.get(
                 "www.baidu.com",
                 Gson().toJson(mapOf<String, Any>("key1" to 1, "key2" to "2"))
-            )
+            ){success, msg->{}}
         }) {
             Text(
                 text = "Get",
